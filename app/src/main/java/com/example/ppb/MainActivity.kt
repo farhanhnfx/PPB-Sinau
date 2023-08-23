@@ -25,14 +25,6 @@ class MainActivity : AppCompatActivity() {
             // ganti bg
 //            txtNumber.setBackgroundResource(R.color.teal_700)
 
-            btnCount.setOnClickListener {
-                number++
-                txtNumber.text = number.toString()
-            }
-            btnToast.setOnClickListener {
-                Toast.makeText( this@MainActivity, number.toString(), Toast.LENGTH_SHORT).show()
-            }
-
             // TUGAS
             btnLogin.setOnClickListener {
                 var getUsername = inpUsername.text.toString()
