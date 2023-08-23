@@ -9,6 +9,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var number = 0
 
+    private val username = "farhanh"
+    private val password = "pw123"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -29,6 +32,19 @@ class MainActivity : AppCompatActivity() {
             btnToast.setOnClickListener {
                 Toast.makeText( this@MainActivity, number.toString(), Toast.LENGTH_SHORT).show()
             }
+
+            // TUGAS
+            btnLogin.setOnClickListener {
+                var getUsername = inpUsername.text.toString()
+                var getpass = inpPass.text.toString()
+                if (getUsername.equals(username) && getpass.equals(password)) {
+                    Toast.makeText(this@MainActivity, "Login Sukses!", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    Toast.makeText(this@MainActivity, "Username atau Password Salah!", Toast.LENGTH_SHORT).show()
+                }
+            }
+
         }
     }
 }
