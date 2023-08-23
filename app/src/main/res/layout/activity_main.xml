@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:padding="16dp"
+    android:padding="30dp"
     android:orientation="vertical">
 
     <TextView
@@ -23,37 +23,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="50dp">
-        <Button
+        >
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_toast"
-            android:text="@string/toast"
+            android:text="Username:"
             android:layout_weight="1"
-            android:layout_margin="5sp"/>
-        <Button
+            />
+        <EditText
+            android:id="@+id/inp_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_count"
-            android:text="@string/count"
-            android:layout_weight="1"
-            android:layout_margin="5sp"/>
-
+            android:hint="Masukkan Username"
+            android:textStyle="italic"
+            android:inputType="textImeMultiLine"
+            android:layout_weight="4"
+            />
     </LinearLayout>
-    <EditText
-        android:id="@+id/inp_username"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
-        android:inputType="textImeMultiLine"
-        />
-    <EditText
-        android:id="@+id/inp_pass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword"
-        />
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password:"
+            android:layout_weight="1"
+            />
+        <EditText
+            android:id="@+id/inp_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan Password"
+            android:inputType="textPassword"
+            android:layout_weight="4"
+            />
+    </LinearLayout>
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
