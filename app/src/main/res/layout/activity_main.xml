@@ -6,17 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:padding="30dp"
+    android:background="@color/ash_gray"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/txt_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/_0"
-        android:textSize="256sp"
-        android:textColor="#fff"
-        android:background="#000453"
+        android:text="@string/login_page"
+        android:textSize="34sp"
         android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/dark_moss_green"
+        android:fontFamily="serif"
+        android:layout_marginVertical="100sp"
         />
 
     <LinearLayout
@@ -28,6 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Username:"
+            android:textSize="18sp"
+            android:textColor="@color/raisin_black"
             android:layout_weight="1"
             />
         <EditText
@@ -35,8 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Masukkan Username"
-            android:textStyle="italic"
-            android:inputType="textImeMultiLine"
+            android:inputType="text"
             android:layout_weight="4"
             />
     </LinearLayout>
@@ -49,6 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Password:"
+            android:textSize="18sp"
+            android:textColor="@color/raisin_black"
             android:layout_weight="1"
             />
         <EditText
@@ -64,7 +69,11 @@
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="LOGIN"
+        android:text="@string/login"
+        android:textColor="@color/ash_gray"
+        android:backgroundTint="@color/feldgrau"
+        android:padding="10sp"
+        android:layout_marginTop="30sp"
         />
 
 </LinearLayout>

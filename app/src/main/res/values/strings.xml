@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">PPB</string>
-    <string name="toast">TOAST</string>
-    <string name="_0">0</string>
-    <string name="count">COUNT</string>
+    <string name="app_name">PPAB</string>
+    <string name="login_page">Halaman Login</string>
+    <string name="login">LOGIN</string>
 </resources>
