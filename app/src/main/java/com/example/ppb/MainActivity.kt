@@ -13,27 +13,7 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        lateinit var getUsername: String
-        lateinit var getPass: String
-
-        with (binding) {
-            // TUGAS
-            btnLogin.setOnClickListener {
-                getUsername = inpUsername.text.toString()
-                getPass = inpPass.text.toString()
-                if (getUsername == username && getPass == password) {
-                    Toast.makeText(this@MainActivity, "Login Sukses!", Toast.LENGTH_SHORT).show()
-                }
-                else {
-                    Toast.makeText(this@MainActivity, "Username atau Password Salah!", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-        }
+        setContentView(R.layout.activity_main)
     }
 }
