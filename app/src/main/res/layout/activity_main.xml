@@ -5,95 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    >
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar"
+        android:id="@+id/top_layout"
+        layout="@layout/top_layout" />
+
+    <TextView
+        android:id="@+id/txt_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5,600.00"
+        android:textColor="#343031"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_layout"
+        android:layout_margin="16dp"/>
+
+    <include
+        android:id="@+id/bottom_layout"
+        layout="@layout/bottom_layout"
+        app:layout_constraintTop_toBottomOf="@id/txt_balance"
         />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="409dp"
-                android:layout_height="216dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/samsung"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/txt_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:layout_marginTop="33dp"
-                android:text="Lorem Ipsum Dolor Sit Amet"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-            <TextView
-                android:id="@+id/txt_content"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quam orci, facilisis non tempus sed, ornare eu ligula. Nam mattis porttitor rhoncus. Suspendisse gravida mi non eros malesuada dapibus. Cras finibus malesuada sapien, eget accumsan ex imperdiet in. Sed fringilla vulputate ex, in placerat sapien ultrices quis. Cras bibendum semper ipsum nec facilisis. Donec eu tortor neque.  Curabitur tristique, ex in rhoncus lobortis, erat purus rhoncus neque, et aliquam erat augue eget magna. Nunc vehicula, ligula ac venenatis porttitor, urna ipsum lacinia metus, vel ullamcorper quam enim nec sem. In lacinia venenatis tristique. Morbi molestie neque id tellus eleifend, quis consectetur tellus tincidunt. Suspendisse potenti. Mauris fringilla sodales augue eu pellentesque. Pellentesque sem felis, accumsan non ligula sit amet, ultrices mollis neque. Donec sollicitudin, diam a elementum aliquet, quam sapien hendrerit lorem, non viverra lorem tortor vitae diam. Sed ornare condimentum libero ut tempor. Aenean at lacus id lacus tempus tempor. Fusce semper justo auctor massa pellentesque interdum. Cras dui tellus, suscipit non risus sit amet, efficitur viverra purus.  Curabitur commodo lorem condimentum nunc gravida, sit amet luctus tellus efficitur. Nulla massa tellus, pulvinar vel mauris eu, consectetur tincidunt augue. Duis gravida ante arcu, nec mattis diam volutpat eu. Quisque purus dolor, congue et dolor non, auctor efficitur mauris. Integer auctor, magna vitae interdum tincidunt, turpis quam sodales tortor, nec imperdiet enim velit in leo. Fusce auctor molestie nibh in sagittis. Fusce sit amet mi vel urna vestibulum vulputate non et velit. Integer cursus, nunc sit amet tincidunt hendrerit, neque massa consectetur dolor, eu facilisis arcu orci at odio. Mauris et arcu ultricies leo scelerisque pulvinar eu nec ligula.  Morbi volutpat, tellus tempus vestibulum aliquet, orci turpis congue lectus, non tempor metus diam sit amet lacus. Aenean id metus vel dui vulputate sodales. Nulla sed elit suscipit, mollis nibh eu, pellentesque libero. Aenean aliquam pellentesque sem, vel placerat tellus venenatis nec. Vivamus vestibulum, urna et rutrum viverra, lectus lectus semper ex, vitae venenatis augue metus non ex. Praesent eu mi lacus. Praesent in est est. Donec a imperdiet justo. Etiam bibendum nibh ac tortor lacinia tempor. Vivamus euismod lorem non leo ornare, vulputate scelerisque neque consectetur. Nulla non euismod felis, et ultricies diam. "
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/txt_title"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/txt_title"
-                app:layout_constraintTop_toBottomOf="@+id/txt_title"
-                app:layout_constraintVertical_bias="0.1" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintGuide_percent="0.5"
-                android:orientation="vertical"
-                />
-            <Button
-                android:id="@+id/btn_prev"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/guideline"
-                app:layout_constraintTop_toBottomOf="@id/txt_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="4dp"
-                android:text="Previous"
-                android:backgroundTint="@color/teal_700"
-                />
-            <Button
-                android:id="@+id/btn_next"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/guideline"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txt_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginVertical="4dp"
-                android:text="Next"
-                android:backgroundTint="@color/teal_700"
-                />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
