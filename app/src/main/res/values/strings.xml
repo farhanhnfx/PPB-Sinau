@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">PPPB</string>
-    <string name="title">Kalkulator Sederhana</string>
+    <array name="countries">
+        <item>Indonesia</item>
+        <item>America</item>
+        <item>UK</item>
+        <item>Australia</item>
+    </array>
 </resources>

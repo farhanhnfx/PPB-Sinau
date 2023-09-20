@@ -1,71 +1,91 @@
 package com.example.ppb
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.ppb.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-    private val TAG = "MainActivityLifecycle"
+class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     private lateinit var binding: ActivityMainBinding
-    companion object {
-        const val EXTRA_NAME = "extra_name";
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val provinsi = arrayOf("Jawa Timur", "Jawa Tengah",
+                                "Jawa Barat", "DKI Jakarta", "DIY")
         with (binding) {
-            btnToSecond.setOnClickListener {
-                val intentToSecondActivity =
-                    Intent(
-                        this@MainActivity,
-                        SecondActivity::class.java
-                    )
-                val name = inpName.text.toString()
-                intentToSecondActivity.putExtra(EXTRA_NAME, name)
-                startActivity(intentToSecondActivity)
+            val adapterProvinsi = ArrayAdapter<String>(this@MainActivity,
+                                                        android.R.layout.simple_spinner_item,
+                                                        provinsi)
+            spinnerProvinsi.adapter = adapterProvinsi
+            val countries = resources.getStringArray(R.array.countries)
+            spinnerCountry.adapter = ArrayAdapter<String>(this@MainActivity, android.R.layout.simple_spinner_item, countries)
+
+            // get selected item
+            spinnerCountry.onItemSelectedListener =
+                object: AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View, position: Int, id: Long
+                ) {
+                    Toast.makeText(this@MainActivity, countries[position], Toast.LENGTH_SHORT).show()
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    TODO("Not yet implemented")
+                }
             }
-            btnSendMsg.setOnClickListener {
-                val intent = Intent(Intent.ACTION_SEND)
-                intent.type = "text/plain"
-                intent.putExtra(Intent.EXTRA_TEXT, "Test hallo!!")
-                startActivity(Intent.createChooser(intent, "Select an app"))
+
+
+            // ketika button diklik baru muncul kalender
+            btnShowCalendar.setOnClickListener {
+                val datePicker = DatePicker()
+                datePicker.show(supportFragmentManager, "datePicker")
             }
-            btnDial.setOnClickListener {
-                val intent = Intent(Intent.ACTION_DIAL)
-                intent.data = Uri.parse("tel:08237482948")
-                startActivity(intent)
+            btnShowTimePicker.setOnClickListener {
+                val timePicker = TimePicker()
+                timePicker.show(supportFragmentManager, "timePicker")
             }
-            btnOpenLink.setOnClickListener {
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse("https://google.com")
-                startActivity(intent)
+
+            datePicker.init(datePicker.year, datePicker.month, datePicker.dayOfMonth) {
+                _, year, month, dayOfMonth ->
+                val selectedDate = "$dayOfMonth/${month+1}/$year"
+                Toast.makeText(this@MainActivity, selectedDate, Toast.LENGTH_SHORT).show()
+            }
+
+            // setontime punya 3 respond yaitu view, hourofDay, dan minute
+            // biasanya view diganti dengan _ karena tidak diubah atau tidak dipakai
+            timePickerView.setOnTimeChangedListener {
+                _, hourOfDay, minute ->
+                val selectedTime = "$hourOfDay:$minute"
+                Toast.makeText(this@MainActivity, selectedTime, Toast.LENGTH_SHORT).show()
             }
         }
-        Log.d(TAG, "oncreate is called")
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "onstart is called")
+    override fun onDateSet(
+        view: android.widget.DatePicker?,
+        year: Int,
+        month: Int,
+        dayOfMonth: Int
+    ) {
+        val selectedDate = "$year/${month+1}/$dayOfMonth"
+        Toast.makeText(this@MainActivity, selectedDate, Toast.LENGTH_SHORT).show()
     }
 
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "onresume is called")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "onpause is called")
+    override fun onTimeSet(view: android.widget.TimePicker?, hourOfDay: Int, minute: Int) {
+        val selectedTime = "$hourOfDay:$minute"
+        Toast.makeText(this@MainActivity, selectedTime, Toast.LENGTH_SHORT).show()
     }
 }
