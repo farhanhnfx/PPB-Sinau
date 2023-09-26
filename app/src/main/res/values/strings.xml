@@ -2,4 +2,10 @@
     <string name="app_name">PPPB</string>
     <string name="agree_tnc">By checking this box you agree to our <font color='#525BFF'>Terms</font> and <font color='#525BFF'>Condition</font></string>
     <string name="have_account">Already Have Account? <font color='#525BFF'>Log In</font></string>
+    <array name="alasan_list">
+        <item>Hadir Tepat Waktu</item>
+        <item>Sakit</item>
+        <item>Terlambat</item>
+        <item>Izin</item>
+    </array>
 </resources>
