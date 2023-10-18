@@ -10,16 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PPB"
+        android:theme="@style/Theme.Sinau"
         tools:targetApi="31">
         <activity
-            android:name=".CobaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HomepageActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
