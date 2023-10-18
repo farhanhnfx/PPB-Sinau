@@ -45,7 +45,7 @@ class RegisterActivity : AppCompatActivity() {
                 val password = editPassword.text.toString()
 
                 if (username == "" || email == "" || phone == "" || password == "") {
-                    Toast.makeText(this@RegisterActivity, "Please fill all in all columns", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@RegisterActivity, "Please fill in all columns", Toast.LENGTH_SHORT).show()
                 }
                 else {
                     val intentToHomepageActivity =
