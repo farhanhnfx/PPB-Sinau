@@ -11,54 +11,32 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewPagerMain: ViewPager2
+    lateinit var viewPager: ViewPager2
+
+    companion object {
+        var USERNAME: String = ""
+        var PASSWORD: String = ""
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        viewPager = findViewById(R.id.view_pager)
-//        viewPager.adapter = TabAdapter(this@MainActivity)
+        viewPager = findViewById(R.id.view_pager)
+        viewPager.adapter = TabAdapter(this@MainActivity)
         title = "Dashboard"
         supportActionBar?.hide()
 
         with (binding) {
-            viewPager.adapter = TabAdapter(this@MainActivity)
-            viewPagerMain = viewPager
+//            viewPager.adapter = TabAdapter(this@MainActivity)
+//            viewPagerMain = viewPager
             TabLayoutMediator(tabLayout, viewPager) {
                 tab, position ->
                 tab.text = when(position) {
-                    0 -> "Home" // judul tab
-                    1 -> "Material"
-                    2 -> "Quiz"
+                    0 -> "Register" // judul tab
+                    1 -> "Login"
                     else -> ""
                 }
             }.attach()
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_options, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_home -> {
-                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
-                viewPagerMain.setCurrentItem(0)
-                true
-            }
-            R.id.action_material -> {
-                Toast.makeText(this, "Material", Toast.LENGTH_SHORT).show()
-                viewPagerMain.setCurrentItem(1)
-                true
-            }
-            R.id.action_quiz -> {
-                Toast.makeText(this, "Quiz", Toast.LENGTH_SHORT).show()
-                viewPagerMain.setCurrentItem(2)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
         }
     }
 }
