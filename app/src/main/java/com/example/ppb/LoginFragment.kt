@@ -54,7 +54,7 @@ class LoginFragment : Fragment() {
             val editUsername = view.findViewById<EditText>(R.id.edit_username).text.toString()
             val editPassword = view.findViewById<EditText>(R.id.edit_password).text.toString()
 
-            if (editUsername == username && editPassword == password) {
+            if (username != "" && password != "" && editUsername == username && editPassword == password) {
                 val intent = Intent(requireContext(), DashboardActivity::class.java)
                 startActivity(intent)
                 Toast.makeText(requireContext(), "Login success", Toast.LENGTH_SHORT).show()

@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         viewPager = findViewById(R.id.view_pager)
         viewPager.adapter = TabAdapter(this@MainActivity)
-        title = "Dashboard"
         supportActionBar?.hide()
 
         with (binding) {
