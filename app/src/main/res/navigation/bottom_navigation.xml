@@ -3,43 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_navigation"
-    app:startDestination="@id/homeFragment">
-
+    app:startDestination="@id/ticketFragment">
+    <fragment
+        android:id="@+id/ticketFragment"
+        android:name="com.example.ppb.TicketFragment"
+        android:label="fragment_ticket"
+        tools:layout="@layout/fragment_ticket" >
+        <action
+            android:id="@+id/action_ticketFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.ppb.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_checkoutFragment"
-            app:destination="@id/checkoutFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/cartFragment"
-        android:name="com.example.ppb.CartFragment"
-        android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        android:id="@+id/orderFragment"
+        android:name="com.example.ppb.OrderFragment"
+        android:label="fragment_order"
+        tools:layout="@layout/fragment_order" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.ppb.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/checkoutFragment"
-        android:name="com.example.ppb.CheckoutFragment"
-        android:label="fragment_checkout"
-        tools:layout="@layout/fragment_checkout" >
-        <argument
-            android:name="productName"
-            app:argType="string"
-            app:nullable="true" />
-        <action
-            android:id="@+id/action_checkoutFragment_to_addressFragment"
-            app:destination="@id/addressFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/addressFragment"
-        android:name="com.example.ppb.AddressFragment"
-        android:label="fragment_address"
-        tools:layout="@layout/fragment_address" />
 </navigation>
