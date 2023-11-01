@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24dp"
+    android:background="@drawable/card_item"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp">
+
+    <ImageView
+        android:id="@+id/img_mhs"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/ic_profile"
+        android:layout_marginEnd="16dp"
+        android:layout_centerVertical="true"
+        />
+    <TextView
+        android:id="@+id/txt_mhs_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/img_mhs"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="24sp"
+        android:text="Nama Mahasiswa"
+        />
+    <TextView
+        android:id="@+id/txt_mhs_angkatan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="18sp"
+        android:text="Angkatan 9999"
+        android:layout_below="@id/txt_mhs_name"
+        android:layout_alignStart="@id/txt_mhs_name"
+        />
+    <TextView
+        android:id="@+id/txt_mhs_ipk"
+        android:layout_width="76dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="20sp"
+        android:text="3.99"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="2dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/txt_mhs_angkatan"
+        android:background="@drawable/card_gpa_green"
+        />
+
+
+</RelativeLayout>

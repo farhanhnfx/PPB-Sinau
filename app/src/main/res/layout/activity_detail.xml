@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data Mahasiswa"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="32sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="32dp"
+        />
+    <ImageView
+        android:id="@+id/img_mhs"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:background="@drawable/ic_profile"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama"
+        android:textSize="24sp"
+        android:fontFamily="@font/poppins_semibold"
+        />
+    <TextView
+        android:id="@+id/txt_nama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet"
+        android:textSize="24sp"
+        android:fontFamily="@font/poppins_regular"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NIM"
+        android:textSize="24sp"
+        android:fontFamily="@font/poppins_semibold"
+        />
+    <TextView
+        android:id="@+id/txt_nim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="99/999999/QQ/99999"
+        android:textSize="24sp"
+        android:fontFamily="@font/poppins_regular"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Program Studi"
+        android:textSize="24sp"
+        android:fontFamily="@font/poppins_semibold"
+        />
+    <TextView
+        android:id="@+id/txt_prodi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet"
+        android:textSize="24sp"
+        android:fontFamily="@font/poppins_regular"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:textSize="24sp"
+        android:fontFamily="@font/poppins_semibold"
+        />
+    <TextView
+        android:id="@+id/txt_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aktif/Cuti/Lulus"
+        android:textSize="24sp"
+        android:fontFamily="@font/poppins_regular"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IPK saat ini"
+        android:textSize="24sp"
+        android:fontFamily="@font/poppins_semibold"
+        />
+    <TextView
+        android:id="@+id/txt_ipk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9.99"
+        android:textSize="24sp"
+        android:fontFamily="@font/poppins_regular"
+        />
+
+</LinearLayout>

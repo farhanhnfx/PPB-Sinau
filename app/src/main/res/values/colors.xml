@@ -12,4 +12,7 @@
     <color name="dark_moss_green">#474B24</color>
     <color name="raisin_black">#34252F</color>
     <color name="navy">#0D47A1</color>
+    <color name="card_green">#22bb33</color>
+    <color name="card_yellow">#f0ad4e</color>
+    <color name="card_red">#bb2124</color>
 </resources>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PPPB</string>
+    <string name="app_name">MyClass</string>
     <string name="agree_tnc">By checking this box you agree to our <font color='#525BFF'>Terms</font> and <font color='#525BFF'>Condition</font></string>
     <string name="have_account">Already Have Account? <font color='#525BFF'>Log In</font></string>
     <string name="new_member">New Member? <font color='#525BFF'>Register</font></string>
@@ -7,9 +7,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="name">Farhan Hanif</string>
     <string name="nim">22/504834/SV/21715</string>
-    <array name="ticket_type">
-        <item>First Class Ticket</item>
-        <item>Business Class Ticket</item>
-        <item>Economy Class Ticket</item>
-    </array>
+<!--    <array name="ticket_type">-->
+<!--        <item>First Class Ticket</item>-->
+<!--        <item>Business Class Ticket</item>-->
+<!--        <item>Economy Class Ticket</item>-->
+<!--    </array>-->
 </resources>
