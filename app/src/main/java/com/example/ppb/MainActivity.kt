@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val client = ApiClient.getInstance()
         val response = client.getAllUsers()
+        val test = client.getSomePic(4) // mengisi query yang didefinisikan
+
         response.enqueue(object: retrofit2.Callback<Users> {
             override fun onResponse(call: Call<Users>, response: Response<Users>) {
                 val namaUsers = ArrayList<String>()
