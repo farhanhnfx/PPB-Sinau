@@ -9,7 +9,7 @@ object ApiClient {
     fun getInstance(): ApiService {
         val mOkHttpInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         val mOkHttpClient = OkHttpClient.Builder().addInterceptor(mOkHttpInterceptor).build()
-        val builder = Retrofit.Builder().baseUrl("https://dummy.restapiexample.com/api/v1/") // http harus lengkap, diakhiri backslash
+        val builder = Retrofit.Builder().baseUrl("https://dummyjson.com/") // http harus lengkap, diakhiri backslash
                         .client(mOkHttpClient)
                         .addConverterFactory(GsonConverterFactory.create()).build()
         return builder.create(ApiService::class.java)
