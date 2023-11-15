@@ -1,49 +1,85 @@
 package com.example.ppb
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
+import android.widget.ArrayAdapter
 import com.example.ppb.databinding.ActivityMainBinding
-import com.example.ppb.model.Product
-import com.example.ppb.model.ProductList
-import com.example.ppb.network.ApiClient
-import retrofit2.Call
-import retrofit2.Response
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
-    val binding by lazy { // dijalankan oleh sistem ketika dipanggil
-        ActivityMainBinding.inflate(layoutInflater)
-    }
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var mNotesDao: NoteDao
+    private lateinit var executorService: ExecutorService
+    private var updateId: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val client = ApiClient.getInstance()
-        val response = client.getProducts(6)
+        executorService = Executors.newSingleThreadExecutor()
+        val db = NoteRoomDB.getDatabase(this)
+        mNotesDao = db!!.noteDao()!!
 
-        response.enqueue(object: retrofit2.Callback<ProductList> {
-
-            override fun onResponse(call: Call<ProductList>, response: Response<ProductList>) {
-                val productList = ArrayList<Product>()
-                for (product in response.body()?.data ?: arrayListOf()) {
-                    productList.add(product)
-                }
-                val listAdapter = ProductAdapter(productList) {
-                    product ->
-                    val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                    intent.putExtra("DATA_PRODUCT", product)
-                    startActivity(intent)
-                }
-                binding.rvContent.apply {
-                    adapter = listAdapter
-                    layoutManager = LinearLayoutManager(this@MainActivity)
-                }
+        with(binding) {
+            btnAdd.setOnClickListener {
+                val title = editTitle.text.toString()
+                val desc = editDesc.text.toString()
+                insertNote(Note(title = title, description = desc))
+                setEmptyField()
             }
-
-            override fun onFailure(call: Call<ProductList>, t: Throwable) {
-//                TODO("Not yet implemented")
+            listView.setOnItemClickListener { adapterView, view, i, l ->
+                val item = adapterView.adapter.getItem(i) as Note
+                updateId = item.id
+                editTitle.setText(item.title)
+                editDesc.setText(item.description)
             }
+            btnUpdate.setOnClickListener {
+                val title = editTitle.text.toString()
+                val desc = editDesc.text.toString()
+                updateNote(Note(id = updateId, title = title, description = desc))
+                setEmptyField()
+            }
+            listView.setOnItemLongClickListener { adapterView, view, i, l ->
+                val item = adapterView.adapter.getItem(i) as Note
+                deleteNote(item)
+                true
+            }
+        }
+    }
 
-        })
+    override fun onResume() {
+        super.onResume()
+        getAllNotes()
+    }
+
+    private fun getAllNotes() {
+        mNotesDao.allNotes.observe(this) {
+            notes ->
+            val adapter = ArrayAdapter<Note>(this, android.R.layout.simple_list_item_1, notes)
+            binding.listView.adapter = adapter
+        }
+    }
+
+    private fun insertNote(note: Note) {
+        executorService.execute {
+            mNotesDao.insert(note)
+        }
+    }
+    private fun updateNote(note: Note) {
+        executorService.execute {
+            mNotesDao.update(note)
+        }
+    }
+    private fun deleteNote(note:Note) {
+        executorService.execute {
+            mNotesDao.delete(note)
+        }
+    }
+    private fun setEmptyField() {
+        with(binding) {
+            editTitle.setText("")
+            editDesc.setText("")
+        }
     }
 }
