@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.internal.synchronized
 
-@Database(entities = [Note::class], version = 1, exportSchema = false)
+@Database(entities = [Note::class], version = 3, exportSchema = false)
 abstract class NoteRoomDB: RoomDatabase() {
     abstract fun noteDao(): NoteDao?
     companion object {
@@ -17,7 +17,7 @@ abstract class NoteRoomDB: RoomDatabase() {
         fun getDatabase(context: Context): NoteRoomDB? {
             if (INSTANCE == null) {
                 synchronized(NoteRoomDB::class.java) {
-                    INSTANCE = databaseBuilder(context.applicationContext, NoteRoomDB::class.java, "note_database").build()
+                    INSTANCE = databaseBuilder(context.applicationContext, NoteRoomDB::class.java, "financial_notes").fallbackToDestructiveMigration().build()
                 }
             }
             return INSTANCE
