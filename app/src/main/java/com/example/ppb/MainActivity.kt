@@ -6,8 +6,9 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.lifecycle.MutableLiveData
 import com.example.ppb.databinding.ActivityMainBinding
-import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
+import com.google.firebase.Firebase
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy {
@@ -15,19 +16,12 @@ class MainActivity : AppCompatActivity() {
     }
     private val firestore = FirebaseFirestore.getInstance()
     private val budgetCollectionRef = firestore.collection("budgets")
-//    private val firestore by lazy {
-//        FirebaseFirestore.getInstance()
-//    }
-//    private val budgetCollectionRef by lazy {
-//        firestore.collection("budgets")
-//    }
     private var updateId = ""
     private val budgetListLiveData: MutableLiveData<List<Budget>> by lazy {
         MutableLiveData<List<Budget>>()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        FirebaseApp.initializeApp(this)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         observeBudgets()
