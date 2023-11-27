@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PPB Sinau</string>
+    <string name="app_name">PPB Catatan Keuangan</string>
     <array name="category">
         <item>Pemasukan</item>
         <item>Pengeluaran</item>
