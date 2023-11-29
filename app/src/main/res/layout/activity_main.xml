@@ -1,71 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <TextView
-        android:id="@+id/txt_title"
+    <Button
+        android:id="@+id/btn_notif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Catatan Keuangan"
-        android:textSize="24sp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/item_card"
-        tools:itemCount="9"
-        android:layout_below="@id/txt_title"
-        android:layout_above="@id/linear_wrapper"
-        />
-    <LinearLayout
-        android:id="@+id/linear_wrapper"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#E2E8D2"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_vertical"
+        android:text="Kirim Notifikasi"
         android:padding="16dp"
-        >
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Keuangan saat ini:"
-            android:textSize="20sp"
-            android:fontFamily="@font/poppins_semibold"
-            android:layout_weight="1"
-            />
-        <TextView
-            android:id="@+id/txt_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rp99.999"
-            android:textSize="24sp"
-            android:fontFamily="@font/poppins_semibold"
-            android:textAlignment="textEnd"
-            />
-    </LinearLayout>
+        />
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Notifikasi"
+        android:padding="16dp"
+        />
 
-    <ImageButton
-        android:id="@+id/btn_add"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_above="@id/linear_wrapper"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/ic_add_note"/>
-
-</RelativeLayout>
+</LinearLayout>
